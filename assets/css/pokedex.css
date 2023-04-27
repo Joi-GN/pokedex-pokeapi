@@ -34,7 +34,7 @@
 }
 
 .number {
-  font-size: .7rem;
+  font-size: .85rem;
   font-style: italic;
   font-weight: 200;
 }
@@ -46,21 +46,23 @@
 }
 
 .types {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
   list-style: none;
 }
 
 .type {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
   color: white;
-  margin-bottom: .4rem;
   padding: .4rem;
   text-align: center;
 }
 
 .image {
-  max-width: 100%;
-  width: 80px;
+  max-height: 95px;
+  max-width: 80px;
 }
 
 .button-load-more {
