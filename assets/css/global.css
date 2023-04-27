@@ -7,23 +7,48 @@
 
 body {
   background-color: lightgray;
+  height: 100vh;
 }
 
-.normal {background-color: #a6a877;}
-.grass {background-color: #77c850;}
-.fire {background-color: #ee7f30;}
-.water {background-color: #678fee;}
-.electric {background-color: #f7cf2e;}
-.ice {background-color: #98d5d7;}
-.ground {background-color: #dfbf69;}
-.flying {background-color: #a98ff0;}
-.poison {background-color: #a040a0;}
-.fighting {background-color: #bf3029;}
-.psychic {background-color: #f65687;}
-.dark {background-color: #725847;}
-.rock {background-color: #b8a137;}
-.bug {background-color: #a8b720;}
-.ghost {background-color: #6e5896;}
-.steel {background-color: #b9b7cf;}
-.dragon {background-color: #6f38f6;}
-.fairy {background-color: #f9aec7;}
+button {
+  background-color: blue;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 1rem auto 0;
+  padding: .5rem;
+  width: 10rem;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.menu {
+  background-color: rgba(0, 0, 244, 0.3);
+  border-radius: 1rem;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  max-width: 380px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.input-container input {
+  margin-left: .2rem;
+}
+
+.hide {
+  display: none !important;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}
