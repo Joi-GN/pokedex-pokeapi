@@ -1,5 +1,9 @@
+const form = document.getElementById("form")
+const openButton = document.getElementById("btn-open")
 const listElement = document.querySelector("[data-list]")
 const loadMoreButton = document.getElementById("btn-load-more")
+let chosenGeneration, offset
+const limit = 2
 
 const generations = {
   1: {
@@ -24,11 +28,6 @@ const generations = {
   }, 
 }
 
-let chosenGeneration = generations[2]
-
-const limit = 10
-let offset = chosenGeneration.firstPokemonNumber - 1;
-
 const listItemTemplate = (item) => `
   <li class="pokemon ${item.types[0]}">
     <header class="pokemon__header">
@@ -44,7 +43,22 @@ const listItemTemplate = (item) => `
   </li>
 `
 
-const loadPokemons = (limit, offset) => {
+const openPokedex = (gen) => {
+  chosenGeneration = generations[gen]
+  offset = chosenGeneration.firstPokemonNumber - 1;
+  loadMoreButton.classList.remove("hide")
+  resetButton.classList.remove("hide")
+  listElement.innerHTML = ""
+  loadPokemons(limit, offset)
+}
+
+openButton.addEventListener('click', (e)=>{
+  e.preventDefault()
+  openPokedex(form.generation.value)
+  e.target.textContent = "Change generation"
+})
+
+const loadPokemons = () => {
   API.getAll(limit, offset).then((list = []) => 
     listElement.innerHTML += list.map(listItemTemplate).join(""))
 }
@@ -55,10 +69,8 @@ loadMoreButton.addEventListener('click', (e) => {
   if (nextPageTotalItems >= chosenGeneration.lastPokemonNumber) {
     const newLimit = chosenGeneration.lastPokemonNumber - offset
     loadPokemons(newLimit, offset)
-    e.target.remove()
+    loadMoreButton.remove()
   } else {
     loadPokemons(limit, offset)
   }
 })
-
-loadPokemons(limit, offset)
