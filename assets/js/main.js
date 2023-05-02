@@ -3,7 +3,7 @@ const openButton = document.getElementById("btn-open")
 const listElement = document.querySelector("[data-list]")
 const loadMoreButton = document.getElementById("btn-load-more")
 let chosenGeneration, offset
-const limit = 2
+const limit = 10
 
 const generations = {
   1: {
@@ -47,7 +47,6 @@ const openPokedex = (gen) => {
   chosenGeneration = generations[gen]
   offset = chosenGeneration.firstPokemonNumber - 1;
   loadMoreButton.classList.remove("hide")
-  resetButton.classList.remove("hide")
   listElement.innerHTML = ""
   loadPokemons(limit, offset)
 }
